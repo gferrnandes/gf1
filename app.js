@@ -19,6 +19,8 @@ const transporter = nodemailer.createTransport({
 });
 
 
+
+
 const validacoes = [
   body('nome').notEmpty().withMessage('Digite seu nome'),
   body('email').isEmail().withMessage('Digite um e-mail válido'),
