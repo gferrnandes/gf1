@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contato</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f3f4f6; margin: 0; padding: 30px; }
+    .caixa { background: #fff; max-width: 420px; margin: auto; padding: 24px; border-radius: 8px; }
+    h1 { text-align: center; font-size: 22px; }
+    label { display: block; font-size: 13px; font-weight: bold; margin-top: 14px; }
+    input, textarea { width: 100%; box-sizing: border-box; padding: 9px; margin-top: 4px;
+      border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; }
+    textarea { height: 110px; resize: vertical; }
+    button { width: 100%; margin-top: 18px; padding: 11px; background: #1d6ff2; color: #fff;
+      border: none; border-radius: 6px; font-size: 15px; cursor: pointer; }
+    .erro { color: #dc2626; font-size: 14px; margin: 4px 0; }
+    .sucesso { color: #16a34a; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="caixa">
+    <h1>Contato</h1>
+
+    <% if (sucesso) { %>
+      <p class="sucesso">E-mail enviado com sucesso!</p>
+    <% } %>
+
+    <% erros.forEach(function(erro) { %>
+      <p class="erro"><%= erro.msg %></p>
+    <% }) %>
+
+    <form action="/enviar" method="POST">
+      <label>Nome</label>
+      <input type="text" name="nome" placeholder="Seu nome">
+
+      <label>Email</label>
+      <input type="text" name="email" placeholder="seu@email.com">
+
+      <label>Telefone</label>
+      <input type="text" name="telefone" placeholder="(00) 00000-0000">
+
+      <label>Assunto</label>
+      <input type="text" name="assunto" placeholder="Assunto da mensagem">
+
+      <label>Mensagem</label>
+      <textarea name="mensagem" placeholder="Escreva sua mensagem..."></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</body>
+</html>
